@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 
 class ApiService {
   static const String baseUrl =
-      'http://192.168.29.125:1922/api'; // Replace with your backend's base URL
+      'https://diary-node.onrender.com/api'; // Replace with your backend's base URL
 
   static Future<List<dynamic>> getAllEntries() async {
     final response = await http.get(Uri.parse('$baseUrl/Gentries'));
