@@ -64,6 +64,7 @@ class _HomePagesState extends State<HomePages> {
       body: entries.isEmpty
           ? Center(child: Text('No diary entries yet. Add one!'))
           : ListView.builder(
+              padding: EdgeInsets.only(top: 50), // Add general padding for better UI
               itemCount: entries.length,
               itemBuilder: (context, index) {
                 final entry = entries[index];
