@@ -20,7 +20,8 @@ class _AddScreenState extends State<AddScreen> {
 
     if (title.isEmpty || content.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-       const SnackBar(content: Text('Please fill in both the title and content.')),
+        const SnackBar(
+            content: Text('Please fill in both the title and content.')),
       );
       return;
     }
@@ -50,29 +51,31 @@ class _AddScreenState extends State<AddScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Add Entry')),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 60),
-              child: TextField(
-                controller: titleController,
-                decoration: InputDecoration(labelText: 'Title'),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(top: 60),
+                child: TextField(
+                  controller: titleController,
+                  decoration: InputDecoration(labelText: 'Title'),
+                ),
               ),
-            ),
-            TextField(
-              controller: contentController,
-              decoration: InputDecoration(labelText: 'Content'),
-              maxLines: null,
-              minLines: 5,
-            ),
-            SizedBox(height: 16),
-            ElevatedButton(
-              onPressed: saveEntry,
-              child: Text('Save Entry'),
-            ),
-          ],
+              TextField(
+                controller: contentController,
+                decoration: InputDecoration(labelText: 'Content'),
+                maxLines: null,
+                minLines: 5,
+              ),
+              SizedBox(height: 16),
+              ElevatedButton(
+                onPressed: saveEntry,
+                child: Text('Save Entry'),
+              ),
+            ],
+          ),
         ),
       ),
     );
